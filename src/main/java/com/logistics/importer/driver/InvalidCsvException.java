@@ -1,4 +1,4 @@
-package com.logistics.importer;
+package com.logistics.importer.driver;
 
 public class InvalidCsvException extends RuntimeException {
 

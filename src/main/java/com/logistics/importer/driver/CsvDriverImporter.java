@@ -1,6 +1,6 @@
-package com.logistics.importer;
+package com.logistics.importer.driver;
 
-import com.logistics.domain.Region;
+import com.logistics.entity.Region;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -46,14 +46,14 @@ public class CsvDriverImporter implements DriverImporter {
     }
 
     private DriverRecord toRecord(CSVRecord row) {
-        String driverId = row.get("driverId");
-        String name     = row.get("name");
-        String phone    = row.get("phone");
-        String email    = row.get("email");
+        String driverId  = row.get("driverId");
+        String name      = row.get("name");
+        String phone     = row.get("phone");
+        String email     = row.get("email");
         String regionRaw = row.get("region");
 
-        if (driverId == null || driverId.isBlank()) throw new IllegalArgumentException("driverId is required");
-        if (name     == null || name.isBlank())     throw new IllegalArgumentException("name is required");
+        if (driverId == null || driverId.isBlank())  throw new IllegalArgumentException("driverId is required");
+        if (name     == null || name.isBlank())       throw new IllegalArgumentException("name is required");
         if (regionRaw == null || regionRaw.isBlank()) throw new IllegalArgumentException("region is required");
 
         Region region;

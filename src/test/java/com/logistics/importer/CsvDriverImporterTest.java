@@ -1,6 +1,9 @@
 package com.logistics.importer;
 
-import com.logistics.domain.Region;
+import com.logistics.entity.Region;
+import com.logistics.importer.driver.CsvDriverImporter;
+import com.logistics.importer.driver.ParseResult;
+import com.logistics.importer.driver.DriverRecord;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;

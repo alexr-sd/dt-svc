@@ -1,6 +1,6 @@
-package com.logistics.importer;
+package com.logistics.importer.driver;
 
-import com.logistics.domain.Region;
+import com.logistics.entity.Region;
 
 public record DriverRecord(
         String driverId,

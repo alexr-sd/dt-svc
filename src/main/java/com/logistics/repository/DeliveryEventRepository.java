@@ -1,6 +1,6 @@
 package com.logistics.repository;
 
-import com.logistics.domain.DeliveryEvent;
+import com.logistics.entity.DeliveryEvent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -10,10 +10,6 @@ import java.util.List;
 
 public interface DeliveryEventRepository extends JpaRepository<DeliveryEvent, Long> {
 
-    /**
-     * For each package, returns the event with the latest timestamp within [from, to].
-     * This is the "terminal state" of a package for the given date range.
-     */
     @Query("""
             SELECT e FROM DeliveryEvent e
             JOIN FETCH e.driver
