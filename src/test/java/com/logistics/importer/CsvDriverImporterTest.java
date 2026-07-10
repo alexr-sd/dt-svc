@@ -25,8 +25,8 @@ class CsvDriverImporterTest {
     @Test
     void parsesValidRows() {
         InputStream input = csv("""
-                D1,Alice,555-0001,alice@example.com,north
-                D2,Bob,555-0002,bob@example.com,SOUTH
+                D1,John,555-0001,john@mail.com,north
+                D2,Bob,555-0002,bob@mail.com,SOUTH
                 """);
 
         ParseResult result = importer.parse(input);
@@ -36,13 +36,13 @@ class CsvDriverImporterTest {
 
         DriverRecord first = result.records().getFirst();
         assertThat(first.driverId()).isEqualTo("D1");
-        assertThat(first.name()).isEqualTo("Alice");
+        assertThat(first.name()).isEqualTo("John");
         assertThat(first.region()).isEqualTo(Region.NORTH);
     }
 
     @Test
     void collectsErrorForMissingDriverId() {
-        ParseResult result = importer.parse(csv(",Alice,555,alice@example.com,north\n"));
+        ParseResult result = importer.parse(csv(",John,555,john@mail.com,north\n"));
 
         assertThat(result.records()).isEmpty();
         assertThat(result.errors()).hasSize(1);
@@ -51,7 +51,7 @@ class CsvDriverImporterTest {
 
     @Test
     void collectsErrorForMissingName() {
-        ParseResult result = importer.parse(csv("D1,,555,alice@example.com,north\n"));
+        ParseResult result = importer.parse(csv("D1,,555,andy@mail.com,north\n"));
 
         assertThat(result.records()).isEmpty();
         assertThat(result.errors()).hasSize(1);
@@ -60,7 +60,7 @@ class CsvDriverImporterTest {
 
     @Test
     void collectsErrorForInvalidRegion() {
-        ParseResult result = importer.parse(csv("D1,Alice,555,alice@example.com,northwest\n"));
+        ParseResult result = importer.parse(csv("D1,Bill,555,bill@mail.com,northwest\n"));
 
         assertThat(result.records()).isEmpty();
         assertThat(result.errors()).hasSize(1);
@@ -70,9 +70,9 @@ class CsvDriverImporterTest {
     @Test
     void continuesParsingAfterBadRow() {
         InputStream input = csv("""
-                D1,Alice,555,alice@example.com,north
+                D1,Andy,555,andy@mail.com,north
                 ,Missing Id,,,east
-                D3,Carol,555,carol@example.com,west
+                D3,Carol,555,carol@mail.com,west
                 """);
 
         ParseResult result = importer.parse(input);
@@ -91,7 +91,7 @@ class CsvDriverImporterTest {
 
     @Test
     void allowsEmptyOptionalFields() {
-        ParseResult result = importer.parse(csv("D1,Alice,,,east\n"));
+        ParseResult result = importer.parse(csv("D1,Jim,,,east\n"));
 
         assertThat(result.records()).hasSize(1);
         assertThat(result.records().getFirst().phone()).isEmpty();
