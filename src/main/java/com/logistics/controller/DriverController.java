@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/v1/drivers")
-class DriverController {
+public class DriverController {
 
     private final DriverService driverService;
 
@@ -22,6 +22,9 @@ class DriverController {
 
     @PostMapping("/upload")
     public ResponseEntity<UploadResult> upload(@RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            throw new IllegalArgumentException("Uploaded file is empty");
+        }
         return ResponseEntity.status(HttpStatus.CREATED).body(driverService.importDrivers(file));
     }
 }

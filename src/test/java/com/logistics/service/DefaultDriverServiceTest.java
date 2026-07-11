@@ -50,8 +50,8 @@ class DefaultDriverServiceTest {
         MockMultipartFile file = new MockMultipartFile("file", "drivers.csv", "text/csv", "data".getBytes());
 
         List<DriverRecord> records = List.of(
-                new DriverRecord("D1", "Jim", "555", "jim@mail.com", Region.NORTH),
-                new DriverRecord("D2", "Pat",   "556", "pat@mail.com",   Region.SOUTH)
+                new DriverRecord("D1", "Jim", "555", "jim@logistics.com", Region.NORTH),
+                new DriverRecord("D2", "Pat",   "556", "pat@logistics.com",   Region.SOUTH)
         );
         when(importer.parse(any(InputStream.class))).thenReturn(new ParseResult(records, List.of()));
 
@@ -67,7 +67,7 @@ class DefaultDriverServiceTest {
         MockMultipartFile file = new MockMultipartFile("file", "drivers.csv", "text/csv", "data".getBytes());
 
         List<DriverRecord> records = List.of(
-                new DriverRecord("D1", "Henry", "555", "henry@mail.com", Region.NORTH)
+                new DriverRecord("D1", "Henry", "555", "henry@logistics.com", Region.NORTH)
         );
         when(importer.parse(any(InputStream.class))).thenReturn(new ParseResult(records, List.of()));
 

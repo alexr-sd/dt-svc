@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/stats")
-class StatsController {
+public class StatsController {
 
     private final StatsService statsService;
 

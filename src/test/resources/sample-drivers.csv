@@ -1,0 +1,7 @@
+driverId,name,phone,email,region
+D001,Andy Martin,+1-555-0101,andy.martin@logistics.com,NORTH
+D002,Bob Chen,+1-555-0102,bob.chen@logistics.com,SOUTH
+D003,Carol Smith,+1-555-0103,carol.smith@logistics.com,EAST
+D004,David Kim,,david.kim@logistics.com,WEST
+D005,Evan Rossi,+1-555-0105,,NORTH
+D006,Frank Muller,+1-555-0106,frank.muller@logistics.com,SOUTH

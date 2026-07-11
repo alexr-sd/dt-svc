@@ -25,8 +25,8 @@ class CsvDriverImporterTest {
     @Test
     void parsesValidRows() {
         InputStream input = csv("""
-                D1,John,555-0001,john@mail.com,north
-                D2,Bob,555-0002,bob@mail.com,SOUTH
+                D1,John,555-0001,john@logistics.com,north
+                D2,Bob,555-0002,bob@logistics.com,SOUTH
                 """);
 
         ParseResult result = importer.parse(input);
@@ -42,7 +42,7 @@ class CsvDriverImporterTest {
 
     @Test
     void collectsErrorForMissingDriverId() {
-        ParseResult result = importer.parse(csv(",John,555,john@mail.com,north\n"));
+        ParseResult result = importer.parse(csv(",John,555,john@logistics.com,north\n"));
 
         assertThat(result.records()).isEmpty();
         assertThat(result.errors()).hasSize(1);
@@ -51,7 +51,7 @@ class CsvDriverImporterTest {
 
     @Test
     void collectsErrorForMissingName() {
-        ParseResult result = importer.parse(csv("D1,,555,andy@mail.com,north\n"));
+        ParseResult result = importer.parse(csv("D1,,555,andy@logistics.com,north\n"));
 
         assertThat(result.records()).isEmpty();
         assertThat(result.errors()).hasSize(1);
@@ -60,7 +60,7 @@ class CsvDriverImporterTest {
 
     @Test
     void collectsErrorForInvalidRegion() {
-        ParseResult result = importer.parse(csv("D1,Bill,555,bill@mail.com,northwest\n"));
+        ParseResult result = importer.parse(csv("D1,Bill,555,bill@logistics.com,northwest\n"));
 
         assertThat(result.records()).isEmpty();
         assertThat(result.errors()).hasSize(1);
@@ -70,9 +70,9 @@ class CsvDriverImporterTest {
     @Test
     void continuesParsingAfterBadRow() {
         InputStream input = csv("""
-                D1,Andy,555,andy@mail.com,north
+                D1,Andy,555,andy@logistics.com,north
                 ,Missing Id,,,east
-                D3,Carol,555,carol@mail.com,west
+                D3,Carol,555,carol@logistics.com,west
                 """);
 
         ParseResult result = importer.parse(input);

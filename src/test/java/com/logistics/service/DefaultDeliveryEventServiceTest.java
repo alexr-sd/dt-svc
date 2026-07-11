@@ -38,7 +38,7 @@ class DefaultDeliveryEventServiceTest {
     @InjectMocks
     private DefaultDeliveryEventService service;
 
-    private final Driver driver = new Driver("D1", "Alice", "555", "alice@mail.com", Region.NORTH);
+    private final Driver driver = new Driver("D1", "Alice", "555", "alice@logistics.com", Region.NORTH);
 
     @Test
     void throwsWhenDriverNotFound() {
