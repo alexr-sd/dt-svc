@@ -1,5 +1,10 @@
 # DT-SVC
 
+[![CI](https://github.com/alexr-sd/dt-svc/actions/workflows/ci.yml/badge.svg)](https://github.com/alexr-sd/dt-svc/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/alexr-sd/dt-svc/actions/workflows/codeql.yml/badge.svg)](https://github.com/alexr-sd/dt-svc/actions/workflows/codeql.yml)
+![Java](https://img.shields.io/badge/Java-21-blue)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.0-brightgreen)
+
 REST API implementing three features: driver ingestion via CSV, delivery event recording, and metric-based statistics.
 
 Standard Spring Boot layered architecture: 
