@@ -24,10 +24,10 @@ jobs:
 
       - name: Publish test results
         if: always()
-        uses: dorny/test-reporter@v1
+        uses: dorny/test-reporter@v2
         with:
           name: Surefire Tests
-          path: target/surefire-reports/*.xml
+          path: '**/surefire-reports/TEST-*.xml'
           reporter: java-junit
 
       - name: Upload coverage report
