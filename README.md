@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/alexr-sd/dt-svc/actions/workflows/ci.yml/badge.svg)](https://github.com/alexr-sd/dt-svc/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/alexr-sd/dt-svc/actions/workflows/codeql.yml/badge.svg)](https://github.com/alexr-sd/dt-svc/actions/workflows/codeql.yml)
+[![codecov](https://codecov.io/gh/alexr-sd/dt-svc/graph/badge.svg)](https://codecov.io/gh/alexr-sd/dt-svc)
 ![Java](https://img.shields.io/badge/Java-21-blue)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.0-brightgreen)
 

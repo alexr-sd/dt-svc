@@ -46,6 +46,12 @@ jobs:
           path: target/reports/surefire.html
           retention-days: 14
 
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: target/site/jacoco/jacoco.xml
+          fail_ci_if_error: false
+
   # deploy:
   #   needs: [test, security]
   #   if: github.ref == 'refs/heads/master' && github.event_name == 'push'
