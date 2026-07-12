@@ -1,9 +1,9 @@
 spring:
   application:
-    name: delivery-tracker
+    name: dt-svc
 
   datasource:
-    url: jdbc:h2:file:./data/delivery-tracker;AUTO_SERVER=TRUE
+    url: jdbc:h2:file:./data/dt-svc;AUTO_SERVER=TRUE
     driver-class-name: org.h2.Driver
     username: sa
     password:

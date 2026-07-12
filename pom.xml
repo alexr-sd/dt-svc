@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.logistics</groupId>
-	<artifactId>delivery-tracker</artifactId>
+	<artifactId>dt-svc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
 	<description/>
