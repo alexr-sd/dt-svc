@@ -24,7 +24,8 @@ H2 console: [`http://localhost:8080/h2-console`](http://localhost:8080/h2-consol
 - JDBC URL: `jdbc:h2:file:./data/dt-svc`
 - Username: `sa`, Password: *(empty)*
 
-Swagger UI: [`http://localhost:8080/swagger-ui.html`](http://localhost:8080/swagger-ui.html)
+Swagger UI: [`http://localhost:8080/swagger-ui.html`](http://localhost:8080/swagger-ui.html)  
+Health: [`http://localhost:8080/actuator/health`](http://localhost:8080/actuator/health)
 
 
 **Build & run artifact**:
