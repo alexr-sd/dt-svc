@@ -73,7 +73,7 @@ jobs:
         continue-on-error: true
         run: |
           ./mvnw org.owasp:dependency-check-maven:12.2.2:check \
-            -DnvdApiKey="$NVD_API_KEY" \
+            -DnvdApiKey=${{ secrets.NVD_API_KEY }} \
             -DfailBuildOnCVSS=10 \
             -DfailOnError=false \
             -Dformat=HTML \
