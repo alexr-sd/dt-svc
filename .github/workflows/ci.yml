@@ -52,7 +52,6 @@ jobs:
           fail_ci_if_error: false
 
   security:
-    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -73,8 +72,10 @@ jobs:
       - name: OWASP dependency check
         continue-on-error: true
         run: |
-          ./mvnw org.owasp:dependency-check-maven:10.0.4:check \
+          ./mvnw org.owasp:dependency-check-maven:12.2.2:check \
+            -DnvdApiKey="$NVD_API_KEY" \
             -DfailBuildOnCVSS=10 \
+            -DfailOnError=false \
             -Dformat=HTML \
             -DoutputDirectory=target/dependency-check
 

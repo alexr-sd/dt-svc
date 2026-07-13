@@ -5,6 +5,7 @@
 [![codecov](https://codecov.io/gh/alexr-sd/dt-svc/graph/badge.svg)](https://codecov.io/gh/alexr-sd/dt-svc)
 ![Java](https://img.shields.io/badge/Java-21-blue)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.0-brightgreen)
+![Docker](https://img.shields.io/badge/Docker-ready-blue?logo=docker) 
 
 REST API implementing three features: driver ingestion via CSV, delivery event recording, and metric-based statistics.
 
