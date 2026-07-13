@@ -1,8 +1,14 @@
 # DT-SVC
 
+[![CI](https://github.com/alexr-sd/dt-svc/actions/workflows/ci.yml/badge.svg)](https://github.com/alexr-sd/dt-svc/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/alexr-sd/dt-svc/actions/workflows/codeql.yml/badge.svg)](https://github.com/alexr-sd/dt-svc/actions/workflows/codeql.yml)
+[![codecov](https://codecov.io/gh/alexr-sd/dt-svc/graph/badge.svg)](https://codecov.io/gh/alexr-sd/dt-svc)
+![Java](https://img.shields.io/badge/Java-21-blue)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.0-brightgreen)
+
 REST API implementing three features: driver ingestion via CSV, delivery event recording, and metric-based statistics.
 
-Standard Spring Boot layered architecture: 
+Standard Spring Boot layered architecture:
 - controllers → services → repositories (Spring Data JPA), backed by H2 (file-based DB);
 - import formats and stat metrics are pluggable via Spring-discovered beans;
 - delivery events use Spring application events for decoupled side-effects.
@@ -11,7 +17,7 @@ Standard Spring Boot layered architecture:
 
 ## How to Run
 
-**Prerequisites**: Java 21 
+**Prerequisites**: Java 21
 
 Maven wrapper (`mvnw`) is bundled, no install needed
 
@@ -20,7 +26,7 @@ Maven wrapper (`mvnw`) is bundled, no install needed
 ```
 
 App starts on: `http://localhost:8080`  
-H2 console: [`http://localhost:8080/h2-console`](http://localhost:8080/h2-console)  
+H2 console: [`http://localhost:8080/h2-console`](http://localhost:8080/h2-console)
 - JDBC URL: `jdbc:h2:file:./data/dt-svc`
 - Username: `sa`, Password: *(empty)*
 
@@ -80,4 +86,3 @@ curl "http://localhost:8080/api/v1/stats?metric=delivery_rate&from=2024-05-01&to
 # → { "metric": "delivery_rate", "value": 0.5, ... }
 # PKG-001 terminal = DELIVERED, PKG-002 terminal = FAILED → 1 of 2 delivered
 ```
-
